@@ -31,4 +31,9 @@ export const inexpensiveSupplies = supplies.filter(taco => {
     }
     return false
 })
+export const brandNames = supplies.map(supplyObject => {
+   
+    return supplyObject.brand
+})
+
 

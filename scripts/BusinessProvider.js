@@ -1,3 +1,4 @@
+
 const businesses = [
   {
     purchasingAgent: { nameLast: "Kirlin", nameFirst: "Kristy" },
@@ -128,4 +129,12 @@ export const manufactoringClients=businesses.filter(businessObject =>{
   }
   return false
 
+})
+export const purchasingAgentArray=businesses.map(businessObject => {
+ 
+   return {
+    companyName: businessObject.companyName,
+     purchasingAgent: businessObject.purchasingAgent, 
+     phoneWork: businessObject.phoneWork
+   }
 })

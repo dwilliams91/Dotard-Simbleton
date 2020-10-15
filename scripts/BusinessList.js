@@ -1,5 +1,5 @@
 import { getData, nyClient,manufactoringClients } from './BusinessProvider.js'
-import { businessPartnerHTMLCreator } from './Business.js'
+import { businessPartnerHTMLCreator, purchasingAgentsHTMLCreator } from './Business.js'
 export const customerList = () => {
 
     const contentTarget = document.querySelector(".businessList")
@@ -12,6 +12,8 @@ export const customerList = () => {
         }
     )
 };
+
+// this function lists just businesses in NY
 export const findNYBusinesses = () => {
 
     const contentTarget = document.querySelector(".businessList--newYork")
@@ -26,6 +28,7 @@ export const findNYBusinesses = () => {
 };
 
 
+// this function lists just businesses that are manufactoring
 
 export const findManufactoring=()=>{
     const contentTarget=document.querySelector(".businessList--manufacturing")
@@ -35,6 +38,19 @@ export const findManufactoring=()=>{
     customerArray.forEach(
         (customerObject)=>{
             contentTarget.innerHTML+=businessPartnerHTMLCreator(customerObject)
+        }
+    )
+}
+// this function lists just businesses that are manufactoring
+
+export const purchasingAgentList=()=>{
+    const contentTarget=document.querySelector(".agents")
+    const customerArray=manufactoringClients
+    contentTarget.innerHTML += "<h2>Purchasing Agents</h2>"
+    
+    customerArray.forEach(
+        (customerObject)=>{
+            contentTarget.innerHTML+=purchasingAgentsHTMLCreator(customerObject)
         }
     )
 }

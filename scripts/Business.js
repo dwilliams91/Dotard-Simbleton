@@ -12,3 +12,18 @@ export const businessPartnerHTMLCreator=(myArray)=>{
     `
 
 }
+
+export const purchasingAgentsHTMLCreator=(myArray)=>{
+    return `
+    
+    <section class=clients 
+    
+    <div class=client__company> <strong> ${myArray.purchasingAgent.nameFirst} ${myArray.purchasingAgent.nameLast} </strong></div>
+    <div class=client__address-street> ${myArray.companyName} </div>
+    <div class=client__address-city> ${myArray.phoneWork}</div>
+    <br>
+
+    </section>
+    `
+
+}
