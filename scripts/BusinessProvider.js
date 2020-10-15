@@ -114,3 +114,9 @@ const businesses = [
   export const getData=()=>{
       return businesses.slice()
   }
+export const nyClient=businesses.filter(businessObject =>{
+  if (businessObject==="NY"){
+    return true
+  }
+  return false
+})

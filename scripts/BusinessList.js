@@ -1,4 +1,4 @@
-import { getData } from './BusinessProvider.js'
+import { getData, nyClient } from './BusinessProvider.js'
 import { businessPartnerHTMLCreator } from './Business.js'
 export const customerList = () => {
 
@@ -13,3 +13,15 @@ export const customerList = () => {
     )
 };
 
+export const customerList = () => {
+
+    const contentTarget = document.querySelector(".NYBusinesses")
+    const customerArray = nyClient()
+    contentTarget.innerHTML += "<h1>Active Businesses</h1>"
+
+    customerArray.forEach(
+        (customerObject) => {
+            contentTarget.innerHTML += businessPartnerHTMLCreator(customerObject)
+        }
+    )
+};
