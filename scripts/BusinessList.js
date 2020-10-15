@@ -12,11 +12,10 @@ export const customerList = () => {
         }
     )
 };
-
-export const customerList = () => {
+export const findNYBusinesses = () => {
 
     const contentTarget = document.querySelector(".NYBusinesses")
-    const customerArray = nyClient()
+    const customerArray = nyClient
     contentTarget.innerHTML += "<h1>Active Businesses</h1>"
 
     customerArray.forEach(
@@ -25,3 +24,4 @@ export const customerList = () => {
         }
     )
 };
+
