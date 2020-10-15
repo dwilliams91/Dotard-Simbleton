@@ -1,4 +1,4 @@
-import { getData, nyClient,manufactoringClients } from './BusinessProvider.js'
+import { getData, nyClient,manufactoringClients, searchBusinesses } from './BusinessProvider.js'
 import { businessPartnerHTMLCreator, purchasingAgentsHTMLCreator } from './Business.js'
 export const customerList = () => {
 
@@ -41,7 +41,8 @@ export const findManufactoring=()=>{
         }
     )
 }
-// this function lists just businesses that are manufactoring
+// this function displays the purchasing agents
+
 
 export const purchasingAgentList=()=>{
     const contentTarget=document.querySelector(".agents")
@@ -54,3 +55,41 @@ export const purchasingAgentList=()=>{
         }
     )
 }
+
+
+const companySearchResultArticle = document.querySelector(".foundCompanies")
+
+document
+    .querySelector("#companySearch")
+    .addEventListener("keypress", keyPressEvent => {
+        if (keyPressEvent.charCode === 13) {
+            
+
+            /*
+                When user presses enter, find the matching business.
+                You can use the `.includes()` method strings to
+                see if a smaller string is part of a larger string.
+
+                Example:
+                    business.companyName.includes(keyPressEvent.target.value)
+            */
+           const customerArray = getData()
+
+            const foundBusiness = customerArray.find(business => business.companyName.includes(keyPressEvent.target.value))
+
+            companySearchResultArticle.innerHTML = `
+                <h2>
+                ${foundBusiness.companyName}
+                </h2>
+                <section>
+                ${foundBusiness.addressFullStreet}
+
+                </section>
+                <section>
+                ${foundBusiness.addressCity},
+                ${foundBusiness.addressStateCode}
+                ${foundBusiness.addressZipCode}
+                </section>
+            `;
+        }
+    });

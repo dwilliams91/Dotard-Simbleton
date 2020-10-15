@@ -138,3 +138,7 @@ export const purchasingAgentArray=businesses.map(businessObject => {
      phoneWork: businessObject.phoneWork
    }
 })
+
+export const searchBusinesses = (includedText) => {
+  return businesses.find(business => business.companyName.includes(includedText))
+}
