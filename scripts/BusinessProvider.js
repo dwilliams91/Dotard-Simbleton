@@ -121,3 +121,11 @@ export const nyClient = businesses.filter(businessObject => {
   }
   return false
 })
+
+export const manufactoringClients=businesses.filter(businessObject =>{
+  if (businessObject.companyIndustry==="Manufacturing"){
+    return true
+  }
+  return false
+
+})
